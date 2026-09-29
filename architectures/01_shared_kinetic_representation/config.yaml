@@ -1,0 +1,28 @@
+model:
+  name: "SharedKineticNet"
+  input_dim: 4
+  shared_layers: 6
+  shared_neurons: 100
+  cbf_layers: 3
+  cbf_neurons: 50
+  att_layers: 3
+  att_neurons: 100
+  activation: "ELU"
+
+training:
+  optimizer: "Adam"
+  lr: 0.001
+  batch_size: 512
+  epochs: 30
+  patience: 10
+  loss: "MAE (L1Loss)"
+  seeds: [42, 123, 2024]
+  train_samples: 20000
+  val_samples: 5000
+
+data:
+  input_normalization: "Z-score (per channel)"
+  target_standardization: "Z-score (per parameter)"
+  cbf_range: [0.0, 100.0]
+  att_range: [0.5, 3.0]
+  noise_model: "dual-Rician magnitude"

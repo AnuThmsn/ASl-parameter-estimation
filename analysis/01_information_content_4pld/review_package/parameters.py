@@ -1,5 +1,4 @@
 import numpy as np
-
 PLDs = np.array([1.525, 2.025, 2.525, 3.025])
 tau = 1.8
 T1t = 1.2

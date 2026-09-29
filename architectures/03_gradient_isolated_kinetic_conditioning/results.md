@@ -47,3 +47,10 @@ The experiment demonstrates a fascinating trade-off. By blocking CBF gradients f
 However, in the **most severely ambiguous regime (ATT 0.5–1.0s)**, the gradient-isolated Architecture 03 actually **outperformed** Architecture 02, improving both CBF (3.68 -> 3.50) and ATT (0.43 -> 0.38) predictions. This suggests that a strictly pure kinetic prior is uniquely powerful at breaking the hardest shape/scale ambiguities, even if it is slightly less optimal for standard regimes.
 
 **Scientific Outcome:** Gradient isolation proved that joint optimization generally aids representation learning, but strict priors remain superior at the physical boundary limits of the forward model.
+
+### Corrected Latent Representation Analysis (Linear Probe)
+A subsequent rigorous evaluation of z_kin was performed using a true linear probe (trained on 20,000 independent samples normalized with the canonical noisy configuration, and tested on the 5,000 held-out test set).
+
+*   **Purity Shift:** Gradient isolation definitively made individual latent dimensions **more ATT-specific** (median correlation rose from 0.43 to 0.50) and **less CBF-sensitive** (median correlation dropped from 0.48 to 0.34).
+*   **Information Content:** The overall linearly recoverable CBF information in z_kin slightly degraded under Architecture 03 (Test RMSE 3.11 vs 2.97).
+*   **Mechanistic Explanation:** The localized network improvement in the short-ATT (0.5–1.0s) regime is not because z_kin contains *more* CBF information (the linear probe CBF RMSE is actually worse there). Instead, the improvement is likely due to the non-linear CBF head benefiting from a stricter timing prior that isn't contorted by conflicting amplitude gradients, effectively allowing it to break the shape/scale ambiguity. Conversely, the overall performance degradation outside this regime is explained by the loss of these mutually beneficial, CBF-sensitive joint features in the latent space.

@@ -1,0 +1,15 @@
+﻿data:
+  n_train: 20000
+  n_val: 5000
+  n_noise_levels: 100
+  sd_max: 66.84078 # 334.2039 / 5.0 (SNR 5)
+  y_min: [0.0, 0.5]
+  y_max: [100.0, 3.0]
+
+training:
+  epochs: 30
+  batch_size: 512
+  lr: 0.001
+  patience: 10
+  grad_clip: 1.0
+  seeds: [42, 123, 2024]

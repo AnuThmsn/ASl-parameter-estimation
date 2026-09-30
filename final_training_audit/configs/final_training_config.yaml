@@ -1,0 +1,25 @@
+data:
+  n_train: 20000
+  n_val: 5000
+  n_test: 5000
+  train_seed: 42
+  val_seed: 100
+  test_seed: 7
+  sd_max: 66.84078 # corresponding to SNR 5
+  n_noise_levels: 100
+
+training:
+  epochs: 200
+  patience: 25
+  batch_size: 512
+  lr: 0.001
+  grad_clip: 1.0
+  seeds: [42, 123, 2024]
+  loss: "L1/MAE"
+
+evaluation:
+  snr_levels: [inf, 50, 20, 15, 10, 5]
+  att_bins: [0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
+  cbf_bins: [0.0, 33.3, 66.6, 100.0]
+
+fixed_alphas: [0.0, 0.25, 0.50, 0.75, 1.00]

@@ -1,0 +1,7 @@
+=== CBF Gradient to Kinetic Encoder Audit ===
+Alpha=1.0 (Arch02 Equivalent): 9.430569
+Alpha=0.0 (Arch03 Equivalent): 0.000000
+Alpha=0.5 (Arch04 Equivalent): 4.715285
+
+Gradient Ratio (Arch03 / Arch02 Equivalent): 0.0000%
+Gradient Ratio (Arch04 / Arch02 Equivalent): 50.0000%

@@ -1,0 +1,41 @@
+model:
+  in_channels: 4
+  base_channels: 16
+
+data:
+  D: 16
+  H: 64
+  W: 64
+  n_train: 200
+  n_val: 40
+  n_test: 40
+  train_seed: 42
+  val_seed: 100
+  test_seed: 7
+
+noise:
+  snr_levels: [null, 50, 20, 15, 10, 5]
+  ref_signal_scale: 334.2039
+
+training:
+  epochs: 200
+  batch_size: 2
+  lr: 0.0005
+  lr_step_epoch: 100
+  lr_step_factor: 0.2
+  patience: 30
+  seeds: [42, 123, 2024]
+  grad_clip: 1.0
+
+curriculum:
+  phase1_end: 40
+  phase2_end: 80
+  phase3_end: 120
+  phase4_start: 120
+
+loss:
+  brain_weight: 1.0
+  background_weight: 1.0
+
+cbf_range: [0.0, 100.0]
+att_range: [0.5, 3.0]
